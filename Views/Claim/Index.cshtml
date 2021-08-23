@@ -1,0 +1,69 @@
+﻿@model IEnumerable<Class_Actions_API.Models.Claim>
+
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="text-primary">Claim List</h2>
+        </div>
+    </div>
+    <br />
+    @if(Model.Count() > 0)
+    {
+        <table class="table table-bordered table-striped" style="width:100%">
+            <thead>
+                <tr>
+                    <th>
+                        Names On Policy
+                    </th>
+                    <th>
+                        Insurer
+                    </th>
+                    <th>
+                        Policy Number
+                    </th>
+                    <th>
+                        Garden/Grounds Costs
+                    </th>
+                    <th>
+                        Fencing Costs
+                    </th>
+                    <th>
+                        Personal Labour Costs
+                    </th>
+                    <th>
+                        TotalCost
+                    </th>
+                    <th>
+                        Comments
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach(var obj in Model)
+                {
+                <tr>
+                    <td width="20%">@obj.NamesOnPolicy</td>
+                    <td width="20%">@obj.Insurer</td>
+                    <td width="5%">@obj.PolicyNo</td>
+                    <td width="5%">@obj.GroundsCost</td>
+                    <td width="5%">@obj.FencingCost</td>
+                    <td width="5%">@obj.LabourCost</td>
+                    <td width="5%">@obj.TotalClaimCost</td>
+                    <td width="20%">@obj.Comments</td>
+                    <td width="5%">
+                        <div class="w-100 btn-group" role="group">
+                            <a asp-controller="Claim" asp-action="Update" asp-route-Id="@obj.Id" class="btn btn-primary mx-1">Update</a>
+                            <a asp-controller="Claim" asp-action="Delete" asp-route-Id="@obj.Id" class="btn btn-danger mx-1">Delete</a>
+                        </div>
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table> 
+    }
+    else
+    {
+        <p>No claims created yet</p>
+    }
+</div>
+

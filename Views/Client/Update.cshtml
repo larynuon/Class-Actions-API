@@ -1,0 +1,210 @@
+﻿@model Class_Actions_API.Models.ViewModels.ClientVM
+<form method="post" asp-action="Update">
+    <input asp-for="Client.Id" hidden />
+    <div class="border p-3">
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <div class="form-group row">
+            <h2 class="text-black-50 pl-3">Update Client</h2>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="Client.FirstName"></label>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <input asp-for="Client.FirstName" class="form-control" />
+                        <span asp-validation-for="Client.FirstName" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="Client.Surname"></label>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <input asp-for="Client.Surname" class="form-control" />
+                        <span asp-validation-for="Client.Surname" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="Client.DOB"></label>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <input asp-for="Client.DOB" class="form-control" />
+                        <span asp-validation-for="Client.DOB" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="Client.AddressLine1"></label>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <input asp-for="Client.AddressLine1" class="form-control" />
+                        <span asp-validation-for="Client.AddressLine1" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="Client.AddressLine2"></label>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <input asp-for="Client.AddressLine2" class="form-control" />
+                        <span asp-validation-for="Client.AddressLine2" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="Client.Suburb"></label>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <input asp-for="Client.Suburb" class="form-control" />
+                        <span asp-validation-for="Client.Suburb" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="Client.State"></label>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <Select asp-for="Client.State" class="form-control" asp-items="Html.GetEnumSelectList<State>()">
+                            <option>--Select State--</option>
+                        </Select>
+                        <span asp-validation-for="Client.State" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="Client.LandOwner"></label>                        
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <Select asp-for="Client.LandOwner" class="form-control" asp-items="Html.GetEnumSelectList<LandOwner>()">
+                            <option>--Select Land Owner--</option>
+                        </Select>
+                        <span asp-validation-for="Client.LandOwner" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="Client.DOL"></label>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <input asp-for="Client.DOL" class="form-control" />
+                        <span asp-validation-for="Client.DOL" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="Client.Comments"></label>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <input asp-for="Client.Comments" class="form-control" />
+                        <span asp-validation-for="Client.Comments" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="container p-3">
+                    <div class="row pt-4">
+                        <div class="col-6">
+                            <h2 class="text-primary">Claim List</h2>
+                        </div>
+                        <div class="col-6 text-right">
+                            <a asp-controller="Claim" asp-action="Create" asp-route-clientId="@Model.Client.Id" class="btn btn-primary">Create new Claim</a>
+                        </div>
+                    </div>
+                    <br />
+                    @if (Model.ClaimList != null)
+                    {
+                        <table class="table table-bordered table-striped" style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        Names On Policy
+                                    </th>
+                                    <th>
+                                        Insurer
+                                    </th>
+                                    <th>
+                                        Policy Number
+                                    </th>
+                                    <th>
+                                        Garden/Grounds Costs
+                                    </th>
+                                    <th>
+                                        Fencing Costs
+                                    </th>
+                                    <th>
+                                        Personal Labour Costs
+                                    </th>
+                                    <th>
+                                        TotalCost
+                                    </th>
+                                    <th>
+                                        Comments
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var obj in Model.ClaimList)
+                                {
+                                <tr>
+                                    <td width="20%">@obj.NamesOnPolicy</td>
+                                    <td width="20%">@obj.Insurer</td>
+                                    <td width="20%">@obj.PolicyNo</td>
+                                    <td width="5%">@obj.GroundsCost</td>
+                                    <td width="5%">@obj.FencingCost</td>
+                                    <td width="5%">@obj.LabourCost</td>
+                                    <td width="5%">@obj.TotalClaimCost</td>
+                                    <td width="20%">@obj.Comments</td>
+                                    <td width="5%">
+                                        <div class="w-100 btn-group" role="group">
+                                            <a asp-controller="Claim" asp-action="Update" asp-route-Id="@obj.Id" class="btn btn-primary mx-1">Update</a>
+                                            <a asp-controller="Claim" asp-action="Delete" asp-route-Id="@obj.Id" class="btn btn-danger mx-1">Delete</a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                }
+                            </tbody>
+                        </table>
+                    }
+                    else
+                    {
+                        <p>No Claims created yet</p>
+                    }
+                </div>
+                <div class="form-group row">
+                    <div class="col-8 offset-2 row">
+                        <div class="col">
+                            <input type="submit" class="btn btn-info w-75" value="Update" />
+                        </div>
+                        <div class="col">
+                            <a asp-action="Index" class="btn btn-danger w-75">Back</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+@section Scripts{
+    @{<partial name="_ValidationScriptsPartial" />}
+}

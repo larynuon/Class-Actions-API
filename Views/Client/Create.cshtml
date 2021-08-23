@@ -1,0 +1,140 @@
+﻿@model Class_Actions_API.Models.ViewModels.ClientVM
+<form method="post" asp-action="Create">
+    <div class="border p-3">
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <div class="form-group row">
+            <h2 class="text-black-50 pl-3">Add Client</h2> 
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="Client.FirstName"></label>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <input asp-for="Client.FirstName" class="form-control" />
+                        <span asp-validation-for="Client.FirstName" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="Client.Surname"></label>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <input asp-for="Client.Surname" class="form-control" />
+                        <span asp-validation-for="Client.Surname" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="Client.DOB"></label>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <input asp-for="Client.DOB" class="form-control" />
+                        <span asp-validation-for="Client.DOB" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="Client.AddressLine1"></label>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <input asp-for="Client.AddressLine1" class="form-control" />
+                        <span asp-validation-for="Client.AddressLine1" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="Client.AddressLine2"></label>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <input asp-for="Client.AddressLine2" class="form-control" />
+                        <span asp-validation-for="Client.AddressLine2" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="Client.Suburb"></label>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <input asp-for="Client.Suburb" class="form-control" />
+                        <span asp-validation-for="Client.Suburb" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="Client.State"></label>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <Select asp-for="Client.State" class="form-control" asp-items="Html.GetEnumSelectList<State>()">
+                            <option selected >--Select State--</option>
+                        </Select>
+                        <span asp-validation-for="Client.State" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="Client.LandOwner"></label>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <Select asp-for="Client.LandOwner" class="form-control" asp-items="Html.GetEnumSelectList<LandOwner>()">
+                            <option selected>--Select Land Owner--</option>
+                        </Select>
+                        <span asp-validation-for="Client.LandOwner" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="Client.DOL"></label>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <input asp-for="Client.DOL" class="form-control" />
+                        <span asp-validation-for="Client.DOL" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="Client.Comments"></label>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <input asp-for="Client.Comments" class="form-control" />
+                        <span asp-validation-for="Client.Comments" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-8 offset-2 row">
+                        <div class="col">
+                            <input type="submit" class="btn btn-info w-75" value="Create" />
+                        </div>
+                        <div class="col">
+                            <a asp-action="Index" class="btn btn-danger w-75">Back</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+@section Scripts{ 
+    @{<partial name="_ValidationScriptsPartial" />}
+}
